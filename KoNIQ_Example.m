@@ -37,9 +37,9 @@ rng(10);
 ftr_len = length(feature_seqs);
 random_seq = randperm(ftr_len);
 YTrain = mos(random_seq(1:ceil(0.8*ftr_len)))./100.0;
-XTrain = ftr_seq(random_seq(1:ceil(0.8*ftr_len))) ;
+XTrain = feature_seqs(random_seq(1:ceil(0.8*ftr_len))) ;
 YTest = mos(random_seq(ceil(0.8*ftr_len)+1:ftr_len))./100.0;
-XTest = ftr_seq(random_seq(ceil(0.8*ftr_len)+1:ftr_len));
+XTest = feature_seqs(random_seq(ceil(0.8*ftr_len)+1:ftr_len));
 
 % Train RNN model
 model = TrainRNNModel(XTrain, YTrain);
